@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>vector notes</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <input 
+      type="text" 
+      id="searchbar" 
+      placeholder="search..."
+    >
+    <div 
+      id="note-list"
+      aria-label="note-list"
+    >
+    </div>
+    <hr></hr>
+    <input 
+      id="note-body" 
+      placeholder="no note selected" 
+      type="text" 
+      aria-label="note-body"
+    >
+    <script src="./renderer.js" type="module"></script>
+  </body>
+</html>
