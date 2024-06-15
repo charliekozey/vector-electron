@@ -10,6 +10,7 @@
   "author": "me",
   "license": "ISC",
   "devDependencies": {
+    "dotenv": "^16.4.5",
     "electron": "^31.0.1"
   }
 }

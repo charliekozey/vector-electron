@@ -1,14 +1,15 @@
-import noteData from './data.json' with { type: 'json' }
+const noteData = await window.electronAPI.getFiles()
+console.log(noteData)
 
 const noteList = document.getElementById("note-list")
 const searchBar = document.getElementById("searchbar")
 const noteBody = document.getElementById("note-body")
 
 function initialize() {
-    
     searchBar.addEventListener("input", (e) => {
         searchNotes(e.target.value)
     })
+
     renderNoteList(noteData)
 }
 
@@ -26,7 +27,6 @@ function renderNoteList(notes) {
 
         label.textContent = note.title
         label.htmlFor = note.id
-        
         label.addEventListener("click", () => {
             populateNoteBody(note.body)
         })
