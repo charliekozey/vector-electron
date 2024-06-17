@@ -1,14 +1,20 @@
 const noteData = await window.electronAPI.getFiles()
-console.log(noteData)
 
 const noteList = document.getElementById("note-list")
 const searchBar = document.getElementById("searchbar")
 const noteBody = document.getElementById("note-body")
+let currentNote = {}
 
 function initialize() {
     searchBar.addEventListener("input", (e) => {
         searchNotes(e.target.value)
     })
+
+    // noteBody.addEventListener("input", (e) => {
+    //     if (currentNote.path) {
+    //         window.electronAPI.saveFile(currentNote, e.target.value, currentNote.path)
+    //     }
+    // })
 
     renderNoteList(noteData)
 }
@@ -29,7 +35,7 @@ function renderNoteList(notes) {
         label.htmlFor = note.id
         label.style.borderBottom = "0.5px solid #fff"
         label.addEventListener("click", () => {
-            populateNoteBody(note.body)
+            populateNoteBody(note)
         })
 
         noteList.append(listItem)
@@ -39,8 +45,10 @@ function renderNoteList(notes) {
     })
 }
 
-function populateNoteBody(text) {
-    noteBody.value = text
+function populateNoteBody(note) {
+    currentNote = note
+    noteBody.value = note.body
+    console.log(note.path)
 }
 
 function searchNotes(queryString) {

@@ -12,11 +12,13 @@ async function handleGetFiles() {
     let counter = 1
 
     for await (const item of directory) {
-        const noteBody = await fs.promises.readFile(`${URL}${item.name}`, { encoding: "utf8" })
+        const notePath = `${URL}${item.name}`
+        const noteBody = await fs.promises.readFile(notePath, { encoding: "utf8" })
         const note = {
             title: item.name,
             body: noteBody,
-            id: counter
+            id: counter,
+            path: notePath
         }
 
         counter += 1
@@ -24,6 +26,12 @@ async function handleGetFiles() {
     }
 
     return noteData
+}
+
+async function handleSaveFile(e, note, content, path) {
+    console.log(note)
+    console.log(content)
+    console.log(path)
 }
 
 async function createWindow() {
@@ -41,6 +49,7 @@ async function createWindow() {
 
 app.whenReady().then(() => {
     ipcMain.handle('getFiles', handleGetFiles)
+    ipcMain.handle('saveFile', handleSaveFile)
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) createWindow()
     })
