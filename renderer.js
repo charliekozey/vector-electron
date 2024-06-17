@@ -46,8 +46,8 @@ function populateNoteBody(text) {
 function searchNotes(queryString) {
     const filteredNotes = noteData.filter(note => {
         return (
-            note.title.includes(queryString) ||
-            note.body.includes(queryString)
+            note.title.toLowerCase().includes(queryString.toLowerCase()) ||
+            note.body.toLowerCase().includes(queryString.toLowerCase())
         )
     })
     
