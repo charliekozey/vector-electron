@@ -6,8 +6,7 @@
 body {
     background-color: var(--dark-color);
     color: var(--light-color);
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: lighter;
+    font-family: 'Ubuntu', sans-serif;
     font-size: 14pt;
     width: 100vw;
     height: 100vh;
@@ -18,7 +17,7 @@ body {
 
 #searchbar {
     width: 96vw;
-    height: 1.7rem;
+    height: 2.5rem;
     background-color: var(--light-color);
     color: var(--dark-color);
     border-style: none;
@@ -38,7 +37,7 @@ hr {
 #note-list {
     display: flex;
     flex-direction: column;
-    padding: 3px 0;
+    padding: 3px 10px;
     max-height: 200px;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -63,8 +62,10 @@ label {
     background-color: var(--dark-color);
     color: var(--light-color);
     margin: 0;
-    padding: 0;
+    padding: 10px;
     border-style: none;
     display: flex;
-    align-content: baseline;
+    align-items: baseline;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 12pt;
 }

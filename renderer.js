@@ -24,9 +24,10 @@ function renderNoteList(notes) {
         listItem.name = "note-list-radio"
         listItem.id = note.id
         if (step == 0 && searchBar.value !== "") listItem.checked = true
-
+        
         label.textContent = note.title
         label.htmlFor = note.id
+        label.style.borderBottom = "0.5px solid #fff"
         label.addEventListener("click", () => {
             populateNoteBody(note.body)
         })
